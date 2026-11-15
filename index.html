@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ежедневник</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Ежедневник</h1>
+    <nav class="tabs" role="tablist">
+      <button class="tab" role="tab" data-tab="week">Неделя</button>
+      <button class="tab" role="tab" data-tab="goals">Задачи и цели</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Неделя -->
+    <section id="tab-week" class="tab-panel" hidden>
+      <div class="week-bar">
+        <div class="week-nav">
+          <button class="icon-btn" id="prev-week" aria-label="Предыдущая неделя">&larr;</button>
+          <button class="btn-ghost" id="this-week">Сегодня</button>
+          <button class="icon-btn" id="next-week" aria-label="Следующая неделя">&rarr;</button>
+        </div>
+        <h2 id="week-label"></h2>
+        <div class="week-stats" id="week-stats"></div>
+      </div>
+      <div class="week-grid" id="week-grid"></div>
+    </section>
+
+    <!-- Глобальные задачи и цели -->
+    <section id="tab-goals" class="tab-panel" hidden>
+      <div class="goals-layout">
+        <div class="panel">
+          <h2>Глобальные задачи</h2>
+          <p class="hint">Крупные дела без привязки к конкретному дню.</p>
+          <form class="add-form" id="task-form">
+            <input type="text" id="task-input" placeholder="Новая задача…" maxlength="200" autocomplete="off">
+            <button type="submit" class="btn">Добавить</button>
+          </form>
+          <ul class="item-list" id="task-list"></ul>
+        </div>
+
+        <div class="panel">
+          <h2>Цели</h2>
+          <p class="hint">Разбейте цель на шаги — прогресс посчитается сам.</p>
+          <form class="add-form goal-form" id="goal-form">
+            <input type="text" id="goal-input" placeholder="Новая цель…" maxlength="200" autocomplete="off">
+            <input type="date" id="goal-deadline" aria-label="Срок">
+            <button type="submit" class="btn">Добавить</button>
+          </form>
+          <div id="goal-list" class="goal-list"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
